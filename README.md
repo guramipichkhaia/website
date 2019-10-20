@@ -1,2 +1,2 @@
 # Gurami' First Website
-# <https://www.ginnovate.org/index.php/pavle-mgeladze/>
+# Please click on this link: <https://www.ginnovate.org/index.php/pavle-mgeladze/>
