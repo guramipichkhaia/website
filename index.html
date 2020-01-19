@@ -81,22 +81,24 @@
 </html>
 
 <?php
-
-    $uploaddir = '/var/www/uploads/';
-    $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
-
-    echo "<p>";
-
-    if (move_uploaded_file($_FILES['image']['tmp_name'], __DIR__.'/../../uploads/'. $_FILES["image"]['name'])) {
-    echo "Uploaded";
-    } else {
-   echo "File was not uploaded";
-    }
-
-    echo "</p>";
-    echo '<pre>';
-    echo 'Here is some more debugging info:';
-    print_r($_FILES);
-    print "</pre>";
+   if (isset($_POST['submit'])) {
+     $file = $_FILES['file'];
+                                        
+     $fileName = $_FILES['file']['name'];                           
+     $fileTmpName = $_FILES['file']['tmp_name'];                           
+     $fileSize = $_FILES['file']['size'];                                     
+     $fileError = $_FILES['file']['error'];                                   
+     $fileType = $_FILES['file']['type'];                                   
+                                        
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+    $allowed = array('jpg', 'jpeg', 'png');                                   
+    
+    if (in_array($fileActualExt, $allowed)) {     
+    
+   } else { 
+        echo "You cannot upload files of this type!";                                
+                                        
+    }                                                                        
 
     ?>
